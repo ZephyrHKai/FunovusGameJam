@@ -1,0 +1,22 @@
+{
+    "abilities": {
+        "Delayed Blast": {
+            "prefix": "",
+            "abilityType": 1,
+            "effect": "DelayedBlast Launch",
+            "stats": {
+                "prepTime": 0,
+                "finishTime": 0,
+                "period": 0,
+                "range": 200
+            },
+            "targetFilter": {
+                "player": 2,
+                "ally": 2,
+                "missile": 2
+            },
+            "commandCardIndex": 0,
+            "commandCardIcon": "dialog_exclamation"
+        }
+    }
+}

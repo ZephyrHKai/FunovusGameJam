@@ -1,0 +1,12 @@
+{
+    "weapons": {
+        "Hero IceMage Weapon": {
+            "parent": "_StandardRangedWeapon",
+            "effectName": "Hero IceMage Weapon Launch"
+        },
+        "MyHero Weapon": {
+            "parent": "_StandardRangedWeapon",
+            "effectName": "MyHero Weapon Launch"
+        }
+    }
+}

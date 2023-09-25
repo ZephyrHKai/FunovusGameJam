@@ -1,0 +1,280 @@
+{
+    "actors": {
+        "DelayedBlast Missle": {
+            "prefix": "",
+            "unitActor": {
+                "resource": {
+                    "type": "ParticleAnimation",
+                    "name": "vfx_candycottage_toxicdroplets_missile"
+                },
+                "preserveOnUnitRemove": false,
+                "events": [
+                    {
+                        "actorTerm": {
+                            "actorCreate": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {}
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "DelayedBlast Missle Attack FX": {
+            "prefix": "",
+            "template": false,
+            "parent": "_FX Attack SingleTarget",
+            "actionActor": {
+                "effect": "DelayedBlast Launch",
+                "launchModel": "DelayedBlast Missle Launch SFX",
+                "impactModel": "DelayedBlast Missle Impact FX"
+            }
+        },
+        "DelayedBlast Missle Impact FX": {
+            "modelActor": {
+                "resource": {
+                    "type": "ParticleAnimation",
+                    "name": "vfx_status_daze_impact"
+                }
+            }
+        },
+        "DelayedBlast Missle Launch SFX": {
+            "prefix": "",
+            "parent": "_SFX OneShot SelfRemoving",
+            "modelActor": {
+                "resource": {
+                    "type": "Sound",
+                    "name": "necromancer_missile_hit"
+                }
+            }
+        },
+        "Hero IceMage": {
+            "prefix": "",
+            "parent": "_StandardUnit DecayOnDeath",
+            "unitActor": {
+                "resource": {
+                    "type": "GpuAnimation",
+                    "name": "elvenmage"
+                },
+                "eventMacros": [
+                    "Events StandardUnit Selectable"
+                ],
+                "hostSites": {
+                    "SiteWeapon": {
+                        "offset": {
+                            "forward": 0.5,
+                            "up": 0.5
+                        }
+                    }
+                },
+                "walkAnimationSpeed": 1.7
+            }
+        },
+        "Hero IceMage Weapon Attack FX": {
+            "parent": "_FX Attack SingleTarget",
+            "actionActor": {
+                "effect": "Hero IceMage Weapon Launch",
+                "launchModel": "Hero IceMage Weapon Launch SFX",
+                "impactModel": "Hero IceMage Weapon Impact FX"
+            }
+        },
+        "Hero IceMage Weapon Impact FX": {
+            "parent": "_FX OneShot SelfRemoving",
+            "modelActor": {
+                "resource": {
+                    "type": "ParticleAnimation",
+                    "name": "vfx_icemage_frostbolt_impact"
+                }
+            }
+        },
+        "Hero IceMage Weapon Launch SFX": {
+            "parent": "_SFX OneShot SelfRemoving",
+            "modelActor": {
+                "resource": {
+                    "type": "Sound",
+                    "name": "ice_mage_missile_launch"
+                }
+            }
+        },
+        "Hero IceMage Weapon Missle": {
+            "prefix": "",
+            "unitActor": {
+                "resource": {
+                    "type": "ParticleAnimation",
+                    "name": "vfx_icemage_weapon_missile"
+                }
+            }
+        },
+        "MyHero": {
+            "prefix": "",
+            "parent": "_StandardUnit DecayOnDeath",
+            "unitActor": {
+                "resource": {
+                    "type": "GpuAnimation",
+                    "name": "fantasy_hero_jester_candy"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "unitDeath": {}
+                        },
+                        "actions": [
+                            {
+                                "create": {
+                                    "actor": "MyHero Death SFX"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitDeath": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 1
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStart": {
+                                "weapon": "MyHero Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStop": {
+                                "weapon": "MyHero Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "stopAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitAbilityStart": {
+                                "ability": "Delayed Blast"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 17
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitAbilityStop": {
+                                "ability": "Delayed Blast"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "stopAnimation": {
+                                    "clipId": 17
+                                }
+                            }
+                        ]
+                    }
+                ],
+                "eventMacros": [
+                    "Events StandardUnit Selectable"
+                ],
+                "hostSites": {
+                    "SiteWeapon": {
+                        "offset": {
+                            "forward": 0.5,
+                            "up": 0.5
+                        }
+                    }
+                },
+                "walkAnimationSpeed": 1.8
+            }
+        },
+        "MyHero Death SFX": {
+            "modelActor": {
+                "resource": {
+                    "type": "Sound",
+                    "name": "surfer_death_01"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "actorCreate": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {}
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "animationFinish": {}
+                        },
+                        "actions": [
+                            {
+                                "destroy": {}
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "MyHero Weapon Attack FX": {
+            "parent": "_FX Attack SingleTarget",
+            "actionActor": {
+                "effect": "MyHero Weapon Launch",
+                "launchModel": "MyHero Weapon Launch SFX",
+                "impactModel": "Hero IceMage Weapon Impact FX"
+            }
+        },
+        "MyHero Weapon Impact FX": {
+            "parent": "_FX OneShot SelfRemoving",
+            "modelActor": {
+                "resource": {
+                    "type": "ParticleAnimation",
+                    "name": "vfx_cragbark_butterfly_missile_impact"
+                }
+            }
+        },
+        "MyHero Weapon Launch SFX": {
+            "parent": "_SFX OneShot SelfRemoving",
+            "modelActor": {
+                "resource": {
+                    "type": "Sound",
+                    "name": "necromancer_missile_launch"
+                }
+            }
+        },
+        "MyHero Weapon Missle": {
+            "prefix": "",
+            "unitActor": {
+                "resource": {
+                    "type": "ParticleAnimation",
+                    "name": "vfx_cragbark_butterfly_missile"
+                }
+            }
+        }
+    }
+}

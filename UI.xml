@@ -1,0 +1,5 @@
+<UI xmlns:bind="https://platform.wildsky.dev/xml/ui/bind" />
+
+<Button width="200" height="100">
+    <Text text="Button" />
+</Button>

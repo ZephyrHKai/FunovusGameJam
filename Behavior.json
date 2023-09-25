@@ -1,0 +1,15 @@
+{
+    "behaviors": {
+        "Enemy LevelUp": {
+            "defaultStackType": {},
+            "modifiers": {
+                "maxHealthModifier": {
+                    "multiplierFactor": 1.1
+                },
+                "weaponDamageModifier": {
+                    "multiplierFactor": 1.1
+                }
+            }
+        }
+    }
+}

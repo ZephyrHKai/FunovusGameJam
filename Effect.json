@@ -1,0 +1,77 @@
+{
+    "effects": {
+        "DelayedBlash Damage": {
+            "damage": {
+                "damageAmount": 5
+            }
+        },
+        "DelayedBlast Area Search": {
+            "areaSearch": {
+                "targetType": 3,
+                "areaSearchType": {
+                    "circle": {
+                        "radius": 2
+                    }
+                },
+                "filter": {
+                    "player": 2,
+                    "ally": 2,
+                    "unit": 1,
+                    "missile": 2,
+                    "air": 2,
+                    "invulerable": 2,
+                    "alive": 1
+                },
+                "validators": [
+                    "TargetUnit Not Helper"
+                ],
+                "effect": "DelayedBlash Damage",
+                "location": 3
+            }
+        },
+        "DelayedBlast Launch": {
+            "launchMissile": {
+                "missileUnit": "DelayedBlast Missle",
+                "effect": "DelayedBlast Persistent",
+                "mover": "DelayedBlast Mover"
+            }
+        },
+        "DelayedBlast Persistent": {
+            "prefix": "",
+            "persistent": {
+                "periodicCount": 1,
+                "startEffect": "DoNothing",
+                "finalEffect": "DelayedBlast Area Search",
+                "location": 2,
+                "periodicDurations": [
+                    2
+                ]
+            }
+        },
+        "Hero IceMage Weapon Damage": {
+            "damage": {
+                "damageAmount": 5
+            }
+        },
+        "Hero IceMage Weapon Launch": {
+            "launchMissile": {
+                "missileUnit": "Hero IceMage Weapon Missle",
+                "effect": "Hero IceMage Weapon Damage",
+                "mover": "Hero IceMage Weapon Missile"
+            }
+        },
+        "MyHero Weapon Damage": {
+            "prefix": "",
+            "damage": {
+                "damageAmount": 5
+            }
+        },
+        "MyHero Weapon Launch": {
+            "launchMissile": {
+                "missileUnit": "MyHero Weapon Missle",
+                "effect": "MyHero Weapon Damage",
+                "mover": "MyHero Weapon Missle"
+            }
+        }
+    }
+}
